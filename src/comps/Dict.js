@@ -30,7 +30,7 @@ function Dict() {
     <div className="mainclass">
       <h2>
         <img
-          src="https://cdn-icons-png.flaticon.com/512/1265/1265907.png" alt="applogo"
+          src="https://cdn-icons-png.flaticon.com/512/1265/1265907.png" alt="logo-dict"
           width="30px"
         />
        Meaning Checker
