@@ -1,4 +1,5 @@
 // Main App file Dict.js
+// Meaning Checker 
 
 import { useState } from "react";
 import ListDetails from "./ListDetails";
@@ -32,7 +33,7 @@ function Dict() {
           src="https://cdn-icons-png.flaticon.com/512/1265/1265907.png"
           width="30px"
         />
-        Dictionary app
+       Meaning Checker
       </h2>
       <input
         className="inputfield"
