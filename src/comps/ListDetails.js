@@ -1,0 +1,46 @@
+const ListDetails = ({ result }) => {
+  const { word, phonetics, meanings } = result;
+
+  function playAudio() {
+    try {
+      let audio = new Audio(phonetics[0].audio);
+      audio.play();
+    } catch (e) {
+      console.log({ e });
+    }
+  }
+
+  return (
+    <div className="card mt-20">
+      <div className="p-20">
+        <div className="flex">
+          <h2>{word}</h2>
+          <div className="pl-20">
+            <p className="audio" onClick={playAudio}>
+              {" "}
+              🔊{" "}
+            </p>
+          </div>
+          <p className="pl-20"> {meanings[0].partOfSpeech} </p>
+          <p className="pl-20"> {phonetics[0].text} </p>
+        </div>
+
+        <div>
+          <p>{meanings[0].definitions[0].definition}</p>
+          <p>{meanings[0].definitions[2].definition}</p>
+        </div>
+
+        <div>
+          <h3>Synonyms </h3>
+          <p>
+            {meanings[0].synonyms.slice(0, 6).map((item, index) => {
+              return <p key={index}>{item}</p>;
+            })}
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default ListDetails;
