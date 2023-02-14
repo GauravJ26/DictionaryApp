@@ -4,8 +4,11 @@
 }
 
 .mainclass {
-
+  
+  margin: 70%;
+  min-height: 25vh;
   align-items: center;
+  text-align:justify;
   justify-content: center;
   font-family: "Lato", sans-serif;
   padding: 20px;

@@ -1,13 +1,15 @@
-import axios from 'axios';
-import { useState } from 'react';
-import ListDetails from './ListDetails';
-import './Dict.css';
-function Dict() {
+// Main App file Dict.js
 
+import { useState } from "react";
+import ListDetails from "./ListDetails";
+import axios from "axios";
+import "./Dict.css";
+
+function Dict() {
   const [keyWord, setkeyWord] = useState("");
   const [result, setResult] = useState(null);
 
-  const api = "https://api.dictionaryapi.dev/api/v2/entries/en"; 
+  const api = "https://api.dictionaryapi.dev/api/v2/entries/en";
 
   async function handleSearch() {
     try {
@@ -15,33 +17,42 @@ function Dict() {
       console.log(res, "res");
       setResult(res.data[0]);
     } catch (e) {
-      console.log({e});
+      console.log({ e });
     }
   }
-  
-  function handleClear(e){
+
+  function handleClear(e) {
     setkeyWord("");
-    setResult("");
-    e.prevent.default();
+    setResult(null);
   }
   return (
-   
-   <div className='mainclass'>
-<h2>Dictionary app</h2>
-<input className='inputfield'  onChange={(e)=> setkeyWord(e.target.value)}/>
-<button className='button' onClick={handleSearch}
-type="submit" >Search</button>
+    <div className="mainclass">
+      <h2>
+        <img
+          src="https://cdn-icons-png.flaticon.com/512/1265/1265907.png"
+          width="30px"
+        />
+        Dictionary app
+      </h2>
+      <input
+        className="inputfield"
+        value={keyWord}
+        onChange={(e) => setkeyWord(e.target.value)}
+      />
+      <button className="button" onClick={handleSearch} type="submit">
+        Search
+      </button>
 
-<button className='button'   disabled={!result}
- type="submit" onClick={handleClear}>Clear</button>
-
-{/* <h2>{keyWord}</h2> */}
-
-<div>
-{result && <ListDetails {...{ result }} />}
-</div>
+      <button
+        className="button"
+        disabled={!result}
+        type="submit"
+        onClick={handleClear}
+      > Clear
+      </button>
+      <div>{result && <ListDetails {...{ result }} />}</div>
     </div>
-  )
+  );
 }
 
 export default Dict;
